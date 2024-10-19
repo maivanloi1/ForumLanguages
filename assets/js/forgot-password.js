@@ -19,7 +19,7 @@ btnSend.onclick = function () {
             .then((data) => {
                 if (data.result) {
                     localStorage.setItem('authToken', data.result.token)
-                    window.location.href = "pages/send-email.html"
+                    window.location.href = "send-email.html"
                 } else {
                     emailError.innerText = data.message
                     emailError.classList.add('error-active')

@@ -1,0 +1,129 @@
+.body-post{
+    background-color: #e7f7fd;
+    display: flex;
+}
+.frame-post{
+    width: 950px;
+    margin-left: 320px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.header-post__heading{
+    font-size:22px;
+    color: #555;
+    font-weight: 600;
+}
+.header-post__hr{
+    border: 2px solid #f7f5f5;
+}
+.kind-post__list{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+.kind-post__item-link{
+    color: #333;
+    display: block;
+    text-decoration: none;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 6px;
+    margin: 8px 0;
+}
+.create-post{
+    background-color: #fff;
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+.post-category{
+    border-bottom: 1px solid #999;
+}
+.post-category__btn{
+    width: 130px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-right: 3px solid #369eff;
+    border-bottom: 3px solid #369eff;
+    color: #369eff;
+}
+.post-category__link{
+    text-decoration: none;
+    color: #369eff;
+    font-weight: 600;
+    margin-left: 4px;
+}
+.post-form{
+    margin: 20px;
+}
+.post-title{
+    margin: 10px 0;
+}
+.post-title__input{
+    width: 100%;
+    height: 36px;
+    font-size: 15px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid #777;
+}
+.content-create{
+    border-radius: 8px;
+    overflow: hidden;
+}
+.content-create__header{
+    background-color: #f1f1f1;
+    height: 40px;
+}
+.content-create__text{
+    height: 400px;
+    width: 100%;
+    font-size: 14px;
+    padding: 4px 6px;
+    border-top: none;
+    border-right: 2px solid #d3d2d2;
+    border-left: 2px solid #d3d2d2;
+    border-bottom: 2px solid #d3d2d2;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.post-file{
+    border: 1px solid #d3d2d2;
+    padding: 5px 8px;
+    border-radius: 4px;
+    width: 52px;
+    margin: 10px 0 10px 4px;
+    cursor: pointer;
+    color: #666;
+}
+.post-file i{
+    cursor: pointer;
+}
+.post-file img{
+    position: relative;
+    left: -3px;
+    width: 40px;
+    height: 40px;    
+    display: none;
+    border-radius: 8px;
+}
+.post-hr{
+    border: 1px solid #d3d2d2;
+}
+.post-file > input{
+    display: none;
+}
+.post-up{
+    display: flex;
+    padding: 10px 0;
+    justify-content: end;
+}
+.post-up__btn{
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #5e5e5e;
+    cursor: pointer;
+}

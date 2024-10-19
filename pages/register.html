@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/font/fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
+</head>
+<body>
+    <div class="grid register">
+        <div class="grid__row-6 register-logo">
+            <div class="login-logo__img">
+                <img src="../assets/images/logo.png" alt="" class="register-logo__img-link">
+            </div>
+        </div>
+        <div class="grid__row-6 register-content">
+            <div class="content-header">
+                <h4 class="content-header__heading">REGISTER</h4>
+                <p class="content-header__title">Welcome To Forum Language</p>
+            </div>
+            <div class="body-register">
+                <form class="register-form">
+                    <div class="register-form__name">
+                        <span class="register-form__name-title">Name</span>
+                        <input type="text" class="register-form__name-input" name="name">
+                        <span class="register-form__name-message"></span>
+                    </div>
+                    <div class="register-form__email">
+                        <span class="register-form__email-title">Email</span>
+                        <input type="text" class="register-form__email-input" name="email">
+                        <span class="register-form__email-message"></span>
+                    </div>
+                    <div class="register-form__language">
+                        <span class="register-form__language-title">Language</span>
+                        <select class="register-form__language-input" name="language">
+                            <option value="" disabled selected>Select your language</option>
+                            <option value="English">English</option>
+                            <option value="China">China</option>
+                            <option value="Japan">Japan</option>
+                        </select>
+                        <span class="register-form__language-message"></span>
+                    </div>
+                    <div class="register-form__sex">
+                        <span class="register-form__sex-title">Sex</span>
+                        <select class="register-form__sex-input" name="sex">
+                            <option value="" disabled selected>Select your gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <span class="register-form__sex-message"></span>
+                    </div>
+                    <div class="register-form__username">
+                        <span class="register-form__username-title">Username</span>
+                        <input type="text" class="register-form__username-input" name="username">
+                        <span class="register-form__username-message"></span>
+                    </div>
+                    <div class="register-form__password">
+                        <span class="register-form__password-title">Password</span>
+                        <input type="password" class="register-form__password-input" name="password">
+                        <span class="register-form__password-message"></span>
+                    </div>
+                    <div class="register-form__repassword">
+                        <span class="register-form__repassword-title">Confirm Password</span>
+                        <input type="password" class="register-form__repassword-input" name="repassword">
+                        <span class="register-form__repassword-message"></span>
+                    </div>
+                    <div class="register-form__nav">
+                        <a href="../index.html" class="register-form__nav-tile">Has account ?</a>
+                    </div>
+                    <div class="register-form__submit">
+                        <button type="button" class="register-form__submit-btn">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/register.js"></script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+.login,
+.register,
+.active,
+.resetPW,
+.forgot,
+.sendEmail,
+.confirmEmail{
+    margin-top: 50px;
+    display: flex;
+}
+.login-logo,
+.register-logo,
+.active-logo,
+.resetPW-logo,
+.forgot-logo,
+.sendEmail-logo,
+.confirmEmail-logo{
+    flex:1;
+}
+.login-logo__img-link,
+.register-logo__img-link,
+.active-logo__img-link,
+.resetPW-logo__img-link,
+.forgot-logo__img-link,
+.sendEmail-logo__img-link,
+.confirmEmail-logo__img-link{
+    width: 100%;
+}
+.login-content,
+.register-content,
+.active-content,
+.resetPW-content,
+.forgot-content,
+.sendEmail-content,
+.confirmEmail-content{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.content-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login-content .content-header{
+    margin-top: 90px;
+}
+.register-content .content-header{
+    margin-top: 30px;
+}
+.active-content .content-header,
+.resetPW-content .content-header,
+.forgot-content .content-header,
+.sendEmail-content .content-header,
+.confirmEmail-content .content-header{
+    margin-top: 200px;
+}
+.active-content .content-header__heading,
+.resetPW-content .content-header__heading,
+.forgot-content .content-header__heading,
+.confirmEmail-content .content-header__heading{
+    font-size: 3.8rem;
+}
+.sendEmail-content .content-header__heading {
+    font-size: 5rem;
+}
+.active-content .content-header__title,
+.resetPW-content .content-header__title,
+.forgot-content .content-header__title,
+.confirmEmail-content .content-header__title
+{
+    font-size: 2.4rem;
+    width: 70%;
+    text-align: center;
+    font-style: normal;
+}
+.sendEmail-content .content-header__title{
+    margin-top: 40px;
+    font-size: 2.6rem;
+    width: 84%;
+    font-style: normal;
+    text-align: center;
+}
+.content-header__heading{
+    font-size: 5.4rem;
+    font-weight: 900;
+}
+.content-header__title{
+    font-style: italic;
+    font-size: 1.9rem;
+    margin: 20px 0 10px;
+}
+.body-login,
+.body-register,
+.body-active,
+.body-resetPW,
+.body-forgot{
+    width: 100%;
+}
+.login-form,
+.register-form,
+.active-form,
+.resetPW-form,
+.forgot-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login-form__username,
+.login-form__password,
+.login-form__nav,
+.register-form__name,
+.register-form__email,
+.register-form__language,
+.register-form__sex,
+.register-form__username,
+.register-form__password,
+.register-form__repassword,
+.register-form__nav,
+.resetPW-form__password,
+.resetPW-form__passwordconfirm,
+.forgot-form__email,
+.active-form__login-other{
+    display: flex;
+    width: 50%;
+    margin-top: 20px;
+}
+.login-form__username-title,
+.login-form__password-title,
+.register-form__name-title,
+.register-form__email-title,
+.register-form__language-title,
+.register-form__sex-title,
+.register-form__username-title,
+.register-form__password-title,
+.register-form__repassword-title,
+.resetPW-form__password-title,
+.resetPW-form__repassword-title,
+.forgot-form__email-title{
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 1.4rem
+}
+.login-form__username-input,
+.login-form__password-input,
+.register-form__name-input,
+.register-form__email-input,
+.register-form__language-input,
+.register-form__sex-input,
+.register-form__username-input,
+.register-form__password-input,
+.register-form__repassword-input,
+.resetPW-form__password-input,
+.resetPW-form__repassword-input,
+.forgot-form__email-input{
+    padding: 8px;
+    border-radius: 8px;
+}
+.login-form__username-message,
+.login-form__password-message,
+.register-form__name-message,
+.register-form__email-message,
+.register-form__language-message,
+.register-form__sex-message,
+.register-form__username-message,
+.register-form__password-message,
+.register-form__repassword-message,
+.login-form__email-message,
+.resetPW-form__password-message,
+.resetPW-form__repassword-message{
+    color: red;
+    margin-top: 4px;
+    font-style: italic;
+    display: none;
+    font-size: 1.4rem;
+}
+.login-form__nav,
+.register-form__nav{
+    justify-content: space-between;
+}
+.login-form__nav-forgot,
+.login-form__nav-register,
+.register-form__nav-tile{
+    font-size: 1.4rem;
+    font-style: italic;
+    text-decoration: none;
+    color: #333;
+}
+.register-form__nav{
+    justify-content: flex-end;
+}
+.login-form__nav-forgot:hover,
+.login-form__nav-register:hover,
+.register-form__nav-tile:hover{
+    color: red;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.login-form__username,
+.login-form__password,
+.register-form__name,
+.register-form__email,
+.register-form__language,
+.register-form__sex,
+.register-form__username,
+.register-form__password,
+.register-form__repassword,
+.resetPW-form__password,
+.resetPW-form__passwordconfirm,
+.forgot-form__email{
+    flex-direction: column;
+}
+.login-form__submit,
+.register-form__submit,
+.active-form__send,
+.resetPW-form__reset,
+.forgot-form__send{
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.login-form__submit-btn:hover,
+.register-form__submit-btn:hover,
+.active-form__send-btn:hover,
+.active-form__email-btnchange:hover,
+.resetPW-form__reset-btn:hover,
+.forgot-form__send-btn:hover{
+    background-color: beige;
+    cursor: pointer;
+}
+.login-form__submit-btn,
+.register-form__submit-btn,
+.resetPW-form__reset-btn,
+.forgot-form__send-btn{
+    border-radius: 8px;
+    padding: 6px 40px;
+    background-color: #fff;
+    font-size: 1.6rem;
+}
+.register-form__language-input,
+.register-form__sex-input{
+    border: 2px solid #333;
+}
+.error-active {
+    display: block;
+}
+.active-form{
+    position: relative;
+}
+.active-form__send-btn{
+    border-radius: 8px;
+    padding: 6px 40px;
+    background-color: #fff;
+    font-size: 2rem;
+}
+.active-form__email-time{
+    font-size: 2.2rem;
+    margin-left: 20px;
+    display: none;
+    position: absolute;
+    right: 216px;
+}
+.active-form__login-other{
+    justify-content: center;
+}
+.active-form__other-link{
+    text-align: center;
+    text-decoration: none;
+    font-style: italic;
+    color: #333;
+    font-size: 1.8rem;
+    display: block;
+}
+.active-form__other-link:hover{
+    opacity: 0.7;
+    cursor: pointer;
+}

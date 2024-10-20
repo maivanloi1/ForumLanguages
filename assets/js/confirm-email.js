@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    fetch(api, option)
+    fetch(apiVerify, option)
         .then((res) => res.json())
         .then((data) => {
             if (data.result.success = true) {

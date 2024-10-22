@@ -105,6 +105,11 @@ html{
     align-items: center;
     font-size: 2rem;
 }
+
+.header-notify__icon > i {
+    cursor: pointer;
+}
+
 .header-account{
     margin-right: 40px;
     display: flex;

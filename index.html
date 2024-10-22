@@ -3,52 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="./assets/font/fontawesome-free-6.6.0-web/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/base.css">
-    <link rel="stylesheet" href="./assets/css/login.css">
+    <title>Home</title>
+    <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/font/fontawesome-free-6.6.0-web/css/all.min.css">
 </head>
 <body>
-    <div class="grid login">
-        <div class="grid__row-6 login-logo">
-            <div class="login-logo__img">
-                <img src="./assets/images/logo.png" alt="" class="login-logo__img-link">
+    <div class="container">
+        <div class="header">
+            <div class="header-logo">
+                <a href="#" class="header-logo__link"><img src="../assets/images/logo.png" alt="Logo" class="header-logo__link-img"></a>
+            </div>
+            
+            <div class="header-banner">
+                <h4 class="header-banner-heading">
+                    Forum Languages
+                </h4>
+            </div>
+            
+            <div class="header-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <form class="header-search__form">
+                    <input type="text" class="header-search__form-input" name="search" placeholder="Tìm kiếm bài viết..." />
+                    <button type="button" class="header-search__form-btn"></button>
+                </form>
+            </div>
+            
+            <div class="header-create">
+                <a href="../pages/post.html" class="header-create__link">
+                    <i class="fa-solid fa-plus"></i>
+                    create
+                </a>
+            </div>
+            <div class="header-notify">
+                <span class="header-notify__icon">
+                    <i class="fa-regular fa-bell"></i>
+                </span>
+            </div>
+            <div class="header-account">
+                <img src="../assets/images/logo.png" alt="" class="header-account__img">
+                <ul class="header-account__list">
+                    <li class="header-account__list-item"><a class="header-account__item-link">Setting</a></li>
+                    <li class="header-account__list-item"><a href="#" class="header-account__item-link">Support</a></li>
+                    <li class="header-account__list-item"><a href="#" class="header-account__item-link">Logout</a></li>
+                </ul>
             </div>
         </div>
-        <div class="grid__row-6 login-content">
-            <div class="content-header">
-                <h4 class="content-header__heading">LOGIN</h4>
-                <p class="content-header__title">Welcome To Forum Language.</p>
+        <div class="post-frame">
+            <div class="nav">
+                <div class="nav-category">
+                    <ul class="nav-category__list">
+                        <li class="nav-category__list-item">
+                            <i class="fa-solid fa-house"></i>
+                            <a href="#" class="nav-category__list-link">Home</a>
+                        </li>
+                        <li class="nav-category__list-item">
+                            <i class="fa-solid fa-fire"></i>
+                            <a href="#" class="nav-category__list-link">Popular</a>
+                        </li>
+                        <li class="nav-category__list-item">
+                            <i class="fa-solid fa-square-arrow-up-right"></i>
+                            <a href="#" class="nav-category__list-link">New</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-language">
+                    <span class="nav-language__text">Language</span>
+                    <ul class="nav-language__list">
+                        <li class="nav-language__list-item">
+                            <i class="fa-solid fa-table-list"></i>
+                            <a href="#" class="nav-language__list-link">English</a>
+                        </li>
+                        <li class="nav-language__list-item">
+                            <i class="fa-solid fa-table-list"></i>
+                            <a href="#" class="nav-language__list-link">China</a>
+                        </li>
+                        <li class="nav-language__list-item">
+                            <i class="fa-solid fa-table-list"></i>
+                            <a href="#" class="nav-language__list-link">Japan</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-other">
+                    <span class="nav-other__text">Other</span>
+                    <ul class="nav-other__list">
+                        <li class="nav-other__list-item">
+                            <i class="fa-solid fa-address-card"></i>
+                            <a href="#" class="nav-other__list-link">About FL</a>
+                        </li>
+                        <li class="nav-other__list-item">
+                            <i class="fa-solid fa-flag"></i>
+                            <a href="#" class="nav-other__list-link">Advertise</a>
+                        </li>
+                        <li class="nav-other__list-item">
+                            <i class="fa-solid fa-question"></i>
+                            <a href="#" class="nav-other__list-link">Help</a>
+                        </li>
+                        <li class="nav-other__list-item">
+                            <i class="fa-solid fa-scroll"></i>
+                            <a href="#" class="nav-other__list-link">Policy</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="body-login">
-                <form class="login-form">
-                        <div class="login-form__username">
-                            <span class="login-form__username-title">Username</span>
-                            <input type="text" class="login-form__username-input" name="username">
-                            <span class="login-form__username-message"></span>
+            <div class="posts">
+                <div class="post">
+                    <div class="post-body">
+                        <div class="post-header">
+                            <div class="post-header__user">
+                                <img src="../assets/images/logo.png" alt="" class="post-header__user-img">
+                                <h6 class="post-header__user-name">
+                                    Post091123
+                                </h6>
+                                <span class="post-header__user-datetime">
+                                    09:00 - 29/06/2024
+                                </span>
+    
+                                <span class="post-header__user-kind">
+                                    English
+                                </span>
+                            </div>
+    
+                            <div class="post-header__more">
+                                <button class="post-header__more-btn">
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                </button>
+                            </div>
                         </div>
-                        <div class="login-form__password">
-                            <span class="login-form__password-title">Password</span>
-                            <input type="password" class="login-form__password-input" name="password">
-                            <span class="login-form__password-message"></span>
+    
+                        <div class="post-title">
+                            <h3 class="post-title__text">
+                                Test1123
+                            </h3>
                         </div>
-                        <div class="login-form__nav">
-                            <a href="./pages/forgot-password.html" class="login-form__nav-forgot">Forgot password ?</a>
-                            <a href="./pages/register.html" class="login-form__nav-register">Register</a>
+    
+                        <div class="post-content">
+                            <span class="post-content__text">
+                                Test123
+                            </span>
                         </div>
-                        <div class="login-form__submit">
-                            <button type="button" class="login-form__submit-btn">Login</button>
+
+                        <div class="post-img">
+                            <img src="https://i.pinimg.com/originals/2c/84/5a/2c845a66b8ad2a8aafd288bdc16cd459.jpg" class="post-img__src">
                         </div>
-                </form>
+    
+                        <div class="post-interact">
+                            <div class="post-interact__like">
+                                <button class="post-interact__like-btn">
+                                    <i class="fa-solid fa-heart"></i>
+                                    2
+                                </button>
+                            </div>
+    
+                            <div class="post-interact__comment">
+                                <button class="post-interact__comment-btn">
+                                    <i class="fa-solid fa-comment"></i>
+                                    3
+                                </button>
+                            </div>
+    
+                            <div class="post-interact__share">
+                                <button class="post-interact__share-btn">
+                                    <i class="fa-solid fa-share"></i>
+                                    1
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+    
+            
             </div>
         </div>
     </div>
-    <script src="./assets/js/shared.js"></script>
-    <script src="./assets/js/login.js"></script>
+    <script src="../assets/js/shared.js"></script>
+    <script src="../assets/js/home.js"></script>
 </body>
 </html>

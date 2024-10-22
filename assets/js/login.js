@@ -40,7 +40,7 @@ btnLogin.onclick = function () {
                         .then((res) => res.json())
                         .then((data) => {
                             if(data.result.active === true){
-                                window.location.href = "pages/home.html"
+                                window.location.href = "../index.html"
                             }else{  
                                 window.location.href = "pages/active-account.html"
                             }

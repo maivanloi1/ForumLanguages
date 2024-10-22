@@ -36,7 +36,7 @@ logoutbtn.onclick = function (event) {
     fetch(apiLogout, option)
         .then(function (res) {
             localStorage.removeItem("authToken")
-            window.location.href = "../index.html"
+            window.location.href = "pages/login.html"
         })
         .catch((error) => {
             console.log("Error: " + error)
@@ -69,7 +69,7 @@ function callApiRefresh() {
             if (data.result) {
                 alert('Bạn đã không hoạt động trong 30 phút. Vui lòng đăng nhập lại!!');
                 localStorage.removeItem("authToken")
-                window.location.href = "../index.html"
+                window.location.href = "pages/login.html"
             }
         })
         .catch((error) => {

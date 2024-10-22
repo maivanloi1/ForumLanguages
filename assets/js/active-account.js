@@ -47,5 +47,5 @@ btnSend.onclick = function () {
 };
 linkLogin.onclick = function () {
     localStorage.removeItem('authToken')
-    window.location.href = "../index.html"
+    window.location.href = "/pages/login.html"
 }

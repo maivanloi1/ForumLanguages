@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,27 +9,30 @@
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/font/fontawesome-free-6.6.0-web/css/all.min.css">
 </head>
+
 <body>
     <div class="container">
         <div class="header">
             <div class="header-logo">
-                <a href="#" class="header-logo__link"><img src="./assets/images/logo.png" alt="Logo" class="header-logo__link-img"></a>
+                <a href="#" class="header-logo__link"><img src="./assets/images/logo.png" alt="Logo"
+                        class="header-logo__link-img"></a>
             </div>
-            
+
             <div class="header-banner">
                 <h4 class="header-banner-heading">
                     Forum Languages
                 </h4>
             </div>
-            
+
             <div class="header-search">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <form class="header-search__form">
-                    <input type="text" class="header-search__form-input" name="search" placeholder="Tìm kiếm bài viết..." />
+                    <input type="text" class="header-search__form-input" name="search"
+                        placeholder="Tìm kiếm bài viết..." />
                     <button type="button" class="header-search__form-btn"></button>
                 </form>
             </div>
-            
+
             <div class="header-create">
                 <a href="./pages/post.html" class="header-create__link">
                     <i class="fa-solid fa-plus"></i>
@@ -41,12 +45,18 @@
                 </span>
             </div>
             <div class="header-account">
-                <img src="./assets/images/logo.png" alt="" class="header-account__img">
+                <img src="" alt="" class="header-account__img">
                 <ul class="header-account__list">
-                    <li class="header-account__list-item"><a class="header-account__item-link">Setting</a></li>
+                    <span class="header-account__username"></span>
+                    <li class="header-account__list-item"><a href="#" class="header-account__item-link">Setting</a></li>
                     <li class="header-account__list-item"><a href="#" class="header-account__item-link">Support</a></li>
                     <li class="header-account__list-item"><a href="#" class="header-account__item-link">Logout</a></li>
                 </ul>
+            </div>
+            <div class="header-auth">
+                <a href="./pages/register.html" class="header-auth__register-link">Register</a>
+                <span>/</span>
+                <a href="./pages/login.html" class="header-auth__login-link">Login</a>
             </div>
         </div>
         <div class="post-frame">
@@ -107,75 +117,12 @@
                 </div>
             </div>
             <div class="posts">
-                <div class="post">
-                    <div class="post-body">
-                        <div class="post-header">
-                            <div class="post-header__user">
-                                <img src="./assets/images/logo.png" alt="" class="post-header__user-img">
-                                <h6 class="post-header__user-name">
-                                    Post091123
-                                </h6>
-                                <span class="post-header__user-datetime">
-                                    09:00 - 29/06/2024
-                                </span>
-    
-                                <span class="post-header__user-kind">
-                                    English
-                                </span>
-                            </div>
-    
-                            <div class="post-header__more">
-                                <button class="post-header__more-btn">
-                                    <i class="fa-solid fa-ellipsis"></i>
-                                </button>
-                            </div>
-                        </div>
-    
-                        <div class="post-title">
-                            <h3 class="post-title__text">
-                                Test1123
-                            </h3>
-                        </div>
-    
-                        <div class="post-content">
-                            <span class="post-content__text">
-                                Test123
-                            </span>
-                        </div>
-
-                        <div class="post-img">
-                            <img src="https://i.pinimg.com/originals/2c/84/5a/2c845a66b8ad2a8aafd288bdc16cd459.jpg" class="post-img__src">
-                        </div>
-    
-                        <div class="post-interact">
-                            <div class="post-interact__like">
-                                <button class="post-interact__like-btn">
-                                    <i class="fa-solid fa-heart"></i>
-                                    2
-                                </button>
-                            </div>
-    
-                            <div class="post-interact__comment">
-                                <button class="post-interact__comment-btn">
-                                    <i class="fa-solid fa-comment"></i>
-                                    3
-                                </button>
-                            </div>
-    
-                            <div class="post-interact__share">
-                                <button class="post-interact__share-btn">
-                                    <i class="fa-solid fa-share"></i>
-                                    1
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-    
-            
+                
             </div>
+            
         </div>
-    </div>
-    <script src="./assets/js/shared.js"></script>
-    <script src="./assets/js/home.js"></script>
+        <script src="./assets/js/shared.js"></script>
+        <script src="./assets/js/home.js"></script>
 </body>
+
 </html>

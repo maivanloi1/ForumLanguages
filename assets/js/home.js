@@ -171,7 +171,7 @@ function loadPost(page) {
                                 <h3 class="post-title__text">${post.title}</h3>
                             </div>
                             <div class="post-content">
-                                <span class="post-content__text">${post.content}</span>
+                                <span class="post-content__text"> ${post.content.replace(/\n/g,'<br>')} </span>
                             </div>
                            <div class="post-img" style="${post.img ? 'display: block;' : 'display: none;'}">
                                 <img class="post-img__src" src="${post.img || ''}" style="${post.img ? 'display: block;' : 'display: none;'}">
@@ -200,6 +200,8 @@ function loadPost(page) {
                     `
                     framePost.appendChild(postElement)
                 })
+            }else if(data.code === 40405){
+                alert("Bạn đã lướt hết bài viết !!!")
             }
         })
         .catch((error) => {

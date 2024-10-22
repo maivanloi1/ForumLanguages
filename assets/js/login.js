@@ -42,7 +42,7 @@ btnLogin.onclick = function () {
                             if(data.result.active === true){
                                 window.location.href = "../index.html"
                             }else{  
-                                window.location.href = "pages/active-account.html"
+                                window.location.href = "active-account.html"
                             }
                         })
                         .catch((error) => {

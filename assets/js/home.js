@@ -156,7 +156,7 @@ function loadPost(page) {
                         <div class="post-body">
                             <div class="post-header">
                                 <div class="post-header__user">
-                                    <img src="${post.img || './assets/images/avatar.png'}" alt="" class="post-header__user-img">
+                                    <img src="${post.img_user || './assets/images/avatar.png'}" alt="" class="post-header__user-img">
                                     <h6 class="post-header__user-name">${post.name}</h6>
                                     <span class="post-header__user-datetime">${post.date_created}</span>
                                     <span class="post-header__user-kind">${post.language}</span>

@@ -1,6 +1,8 @@
 const btnSend = document.querySelector('.forgot-form__send-btn')
 const emailError = document.querySelector('.login-form__email-message')
-const apiResetPW = "https://lephuocviet.io.vn/mail/reset"
+
+const apiResetPW = `${api}mail/reset`
+
 btnSend.onclick = function () {
     let email = document.querySelector('input[name="email"]').value
     if (checkVal(email)) {
@@ -18,7 +20,6 @@ btnSend.onclick = function () {
             .then((res) => res.json())
             .then((data) => {
                 if (data.result) {
-                    localStorage.setItem('authToken', data.result.token)
                     window.location.href = "send-email.html"
                 } else {
                     emailError.innerText = data.message

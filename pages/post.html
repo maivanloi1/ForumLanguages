@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post</title>
     <link rel="stylesheet" href="../assets/css/base.css">
-    <link rel="stylesheet" href="../assets/css/post.css">   
+    <link rel="stylesheet" href="../assets/css/post.css">
     <link rel="stylesheet" href="../assets/font/fontawesome-free-6.6.0-web/css/all.min.css">
 </head>
+
 <body>
     <div class="container">
         <div class="header">
             <div class="header-logo">
-                <a href="../pages/home.html" class="header-logo__link"><img src="../assets/images/logo.png" alt="Logo" class="header-logo__link-img"></a>
+                <a href="../pages/home.html" class="header-logo__link"><img src="../assets/images/logo.png" alt="Logo"
+                        class="header-logo__link-img"></a>
             </div>
-            
+
             <div class="header-banner">
                 <h4 class="header-banner-heading">
                     Forum Languages
                 </h4>
             </div>
-            
+
             <div class="header-search">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <form class="header-search__form">
-                    <input type="text" class="header-search__form-input" name="search" placeholder="Tìm kiếm bài viết..." />
+                    <input type="text" class="header-search__form-input" name="search"
+                        placeholder="Tìm kiếm bài viết..." />
                     <button type="button" class="header-search__form-btn"></button>
                 </form>
             </div>
-            
+
             <div class="header-create">
                 <a href="#" class="header-create__link">
                     <i class="fa-solid fa-plus"></i>
@@ -42,6 +46,11 @@
             </div>
             <div class="header-account">
                 <img src="../assets/images/logo.png" alt="" class="header-account__img">
+                <ul class="header-account__list">
+                    <li class="header-account__list-item"><a class="header-account__item-link">Setting</a></li>
+                    <li class="header-account__list-item"><a href="#" class="header-account__item-link">Support</a></li>
+                    <li class="header-account__list-item"><a href="#" class="header-account__item-link">Logout</a></li>
+                </ul>
             </div>
         </div>
         <div class="body-post">
@@ -51,48 +60,46 @@
                 </div>
                 <hr class="header-post__hr">
                 <form class="post-form">
-                <div class="kind-post">
-                    <ul class="kind-post__list">
-                        <li class="kind-post__list-item"><a href="" class="kind-post__item-link">English</a></li>
-                        <li class="kind-post__list-item"><a href="" class="kind-post__item-link">China</a></li>
-                        <li class="kind-post__list-item"><a href="" class="kind-post__item-link">Japan</a></li>
-                    </ul>
-                </div>
-                <div class="create-post">
-                    <div class="post-category">
-                        <div class="post-category__btn">
-                            <i class="fa-solid fa-list"></i>
-                            <a href="#" class="post-category__link">Post</a>
-                        </div>
+                    <div class="kind-post">
+                        <span class="kind-post__title">Language:</span>
+                        <select name="language" class="kind-post__select">
+                            <option value="" disabled selected>Select your kind</option>
+                            <option value="English">English</option>
+                            <option value="China">China</option>
+                            <option value="Japan">Japan</option>
+                        </select>
                     </div>
+                    <div class="create-post">
                         <div class="post-title">
-                            <input type="text" class="post-title__input" placeholder="Title">
+                            <input type="text" class="post-title__input" name="title" placeholder="Title">
                         </div>
-    
+
                         <div class="content-create">
                             <div class="content-create__header"></div>
-                            <textarea name="" id="" class="content-create__text" placeholder="Text" ></textarea>
+                            <textarea name="content" class="content-create__text" placeholder="Text"></textarea>
                         </div>
-                    
-                    <div class="post-file">
-                        <label for="post-file__input">
-                           <div class="icon">
-                            <i class="fa-solid fa-plus"></i>
-                            <i class="fa-solid fa-image"></i>
-                           </div>
-                        </label>
-                        <img id="post-file__img" alt="Preview Image">
-                        <input type="file" id="post-file__input" accept=".jpg,.png">
-                    </div>
-                    <hr class="post-hr">
-                    <div class="post-up">
-                        <button class="post-up__btn" type="submit">Post</button>
-                    </div>
+
+                        <div class="post-file">
+                            <label for="post-file__input" class="post-file__label">
+                                <div class="icon">
+                                    <i class="fa-solid fa-plus"></i>
+                                    <i class="fa-solid fa-image"></i>
+                                </div>
+                            </label>
+                            <img class="post-file__img" alt="Preview Image">
+                            <input type="file" name="image" id="post-file__input" accept=".jpg,.png">
+                        </div>
+                        <hr class="post-hr">
+                        <div class="post-up">
+                            <button class="post-up__btn" type="button">Post</button>
+                        </div>
                 </form>
-                </div>
             </div>
         </div>
     </div>
+    </div>
+    <script src="../assets/js/shared.js"></script>
     <script src="../assets/js/post.js"></script>
 </body>
+
 </html>

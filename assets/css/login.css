@@ -130,7 +130,7 @@
 .login-form__password-title,
 .register-form__name-title,
 .register-form__email-title,
-.register-form__language-title,
+.register-form__language-select,
 .register-form__sex-title,
 .register-form__username-title,
 .register-form__password-title,
@@ -147,7 +147,7 @@
 .register-form__name-input,
 .register-form__email-input,
 .register-form__language-input,
-.register-form__sex-input,
+.register-form__sex-select,
 .register-form__username-input,
 .register-form__password-input,
 .register-form__repassword-input,
@@ -240,7 +240,7 @@
     font-size: 1.6rem;
 }
 .register-form__language-input,
-.register-form__sex-input{
+.register-form__sex-select{
     border: 2px solid #333;
 }
 .error-active {

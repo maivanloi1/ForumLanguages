@@ -1,7 +1,10 @@
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
+
 const btnRegister = $('.register-form__submit-btn')
-const apiRegister = 'https://lephuocviet.io.vn/users'
+
+const apiRegister = `${api}users`
+
 const nameError = $('.register-form__name-message')
 const emailError = $('.register-form__email-message')
 const languageError = $('.register-form__language-message')
@@ -9,6 +12,7 @@ const sexError = $('.register-form__sex-message')
 const usError = $('.register-form__username-message')
 const pwError = $('.register-form__password-message')
 const rePwError = $('.register-form__repassword-message')
+
 btnRegister.onclick = function () {
     let name = $('input[name="name"]').value
     let email = $('input[name="email"]').value
@@ -49,6 +53,7 @@ btnRegister.onclick = function () {
             })
     }
 }
+
 function showError(code, message) {
     if (code === 40001) {
         usError.innerText = message
@@ -58,6 +63,7 @@ function showError(code, message) {
         emailError.classList.add('error-active')
     }
 }
+
 function checkVal(name, email, language, sex, username, password, repassword) {
     let check = true
     nameError.innerText = ''

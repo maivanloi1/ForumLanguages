@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     const url = document.URL
     const urlParam = new URLSearchParams(url.split('?')[1])
-    const token = urlParam.get('token');
-    const apiVerify = `https://lephuocviet.io.vn/mail/verify?token=${token}`
+    const token = urlParam.get('token')
+    const apiVerify = `${api}mail/verify?token=${token}`
 
     let option = {
         method: "POST",

@@ -24,7 +24,7 @@
 .nav-other__list-item{
     padding: 16px 20px;
     list-style: none;
-    font-size: 24px;
+    font-size: 2.4rem;
     border-radius: 20px;
     display: flex;
     margin: 6px 0;
@@ -42,7 +42,7 @@
 .nav-other__text{
     display: block;
     margin: 16px 0 0 12px;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 500;
     color: #444;
     text-transform: uppercase;
@@ -63,6 +63,13 @@
     width: 100%;
     margin-top: 20px;
 }
+
+.post-body{
+    background-color: #e4e4e4;
+    padding: 20px 40px;
+    border-radius: 14px;
+}
+
 .post-body,
 .post-cmt{
     margin-top: 20px;
@@ -81,22 +88,22 @@
     align-items: center;
 }
 .post-header__user-img{
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
     border: 2px solid #c4c2c2;
 }
 .post-header__user-name{
-    font-size: 18px;
+    font-size: 2.2rem;
     margin: 0 20px 0 14px;
 }
 .post-header__user-datetime{
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: 500;
     color: #333
 }
 .post-header__user-kind{
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: 500;
     color: #333;
     position: relative;
@@ -105,36 +112,42 @@
 .post-header__more-btn{
     border: none;
     background: none;
-    font-size: 20px;
+    font-size: 2rem;
     cursor: pointer;
 }
-.post-kind,
+.post-title,
 .post-content{
     margin-top: 16px;
 }
-.post-img{
-    display: none;
-    width: 100px;
-    max-height: 150px;
-}
-.post-img__src{
-    width: 100%;
-}
-.post-kind__heading{
-    font-size: 22px;
+
+.post-title__text{
+    font-size: 2.2rem;
     margin-left: 8px;
 }
 .post-content__text{
     height: auto;
     width: 100%;
     margin-left: 10px;
-    font-size: 18px;
+    font-size: 1.8rem;
     overflow: hidden;
     display: block;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 10;
 }
+
+.post-img{
+    display: block;
+    margin-top: 24px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.post-img__src{
+    max-height: 400px;
+}
+
 .post-interact{
     display: flex;
     margin-top: 30px;
@@ -147,7 +160,7 @@
 .post-interact__like-btn,
 .post-interact__share-btn,
 .post-interact__comment-btn{
-    font-size: 15px;
+    font-size: 1.5rem;
     border: none;
     border-radius: 20px;
     padding: 10px 14px;
@@ -173,7 +186,7 @@
     text-decoration: none;
     color: #444;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 1.8rem;
 }
 .header-account__list::before{
     content: "";

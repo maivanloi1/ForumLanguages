@@ -1,7 +1,13 @@
-const apiReset = "https://lephuocviet.io.vn/mail/change?token="
 const btnReset = document.querySelector('.resetPW-form__reset-btn')
+const url = document.URL
+const urlParam = new URLSearchParams(url.split('?')[1])
+
+const token = urlParam.get('token')
+const apiReset = `${api}mail/change?token=${token}`
+
 const pwError = document.querySelector('.resetPW-form__password-message')
 const rePwError = document.querySelector('.resetPW-form__repassword-message')
+
 btnReset.onclick = function(){
     let password = document.querySelector('input[name="password"]').value
     let repassword = document.querySelector('input[name="repassword"]').value
@@ -17,7 +23,7 @@ btnReset.onclick = function(){
             },
             body: JSON.stringify(data)
         }
-        fetch(apiReset+localStorage.getItem('authToken'),option)
+        fetch(apiReset,option)
             .then((res) => res.json())
             .then((data) => {
                 if(data.result){
@@ -30,6 +36,7 @@ btnReset.onclick = function(){
             })
     }
 }
+
 function checkVal(passsword, repassword){
     let check = true
     pwError.innerText = ''

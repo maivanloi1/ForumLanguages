@@ -1,10 +1,14 @@
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
+
 const btnLogin = $('.login-form__submit-btn')
-const apiLogin = "https://lephuocviet.io.vn/auth/login"
-const apiCheckActive = "https://lephuocviet.io.vn/accounts/check"
+
+const apiLogin = `${api}auth/login`
+const apiCheckActive = `${api}accounts/check`
+
 const usError = $('.login-form__username-message')
 const pwError = $('.login-form__password-message')
+
 btnLogin.onclick = function () {
     let username = $('input[name="username"]').value
     let password = $('input[name="password"]').value

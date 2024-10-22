@@ -1,9 +1,12 @@
 const btnSend = document.querySelector('.active-form__send-btn')
 const textTime = document.querySelector('.active-form__email-time')
 const linkLogin = document.querySelector('.active-form__other-link')
-const apiSend = ('https://lephuocviet.io.vn/mail/send')
+
+const apiSend = `${api}mail/send`
+
 let sendTime = 90
 let sendTimeout
+
 function resetSendTimeout() {
     let timeLeft = sendTime
     textTime.textContent = `${timeLeft}s`
@@ -18,6 +21,7 @@ function resetSendTimeout() {
         }
     }, 1000)
 }
+
 btnSend.onclick = function () {
     textTime.style.display = 'block'
     let option = {

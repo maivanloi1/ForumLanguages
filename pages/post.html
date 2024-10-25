@@ -14,7 +14,7 @@
     <div class="container">
         <div class="header">
             <div class="header-logo">
-                <a href="../index.html" class="header-logo__link"><img src="../assets/images/logo.png" alt="Logo"
+                <a href="#" class="header-logo__link"><img src="../assets/images/logo.png" alt="Logo"
                         class="header-logo__link-img"></a>
             </div>
 
@@ -45,12 +45,18 @@
                 </span>
             </div>
             <div class="header-account">
-                <img src="../assets/images/avatar.png" alt="" class="header-account__img">
+                <img src="" alt="" class="header-account__img">
                 <ul class="header-account__list">
-                    <li class="header-account__list-item"><a class="header-account__item-link">Setting</a></li>
+                    <span class="header-account__username"></span>
+                    <li class="header-account__list-item"><a href="../pages/setting.html" class="header-account__item-link">Setting</a></li>
                     <li class="header-account__list-item"><a href="#" class="header-account__item-link">Support</a></li>
                     <li class="header-account__list-item"><a href="#" class="header-account__item-link">Logout</a></li>
                 </ul>
+            </div>
+            <div class="header-auth">
+                <a href="../pages/register.html" class="header-auth__register-link">Register</a>
+                <span>/</span>
+                <a href="../pages/login.html" class="header-auth__login-link">Login</a>
             </div>
         </div>
         <div class="body-post">
@@ -99,6 +105,7 @@
     </div>
     </div>
     <script src="../assets/js/shared.js"></script>
+    <script src="../assets/js/header.js"></script>
     <script src="../assets/js/post.js"></script>
 </body>
 

@@ -1,0 +1,112 @@
+
+/* Setting */
+
+.setting{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.setting-heading{
+    font-size: 3.4rem;
+    font-weight: bold;
+    padding: 50px 0 20px;
+}
+
+.setting-list{
+    padding: 10px 0;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.setting-list__heading{
+    display: block;
+    text-align: center;
+    width: 100px;
+    position: relative;
+    top: 1px;
+    font-size: 2.4rem;
+    font-weight: bolder;
+    border-bottom: 4px solid #0D6CC4;
+    border-radius: 2px;
+}
+
+.setting-account{
+    font-size: 2.2rem;
+    font-weight: bolder;
+    padding: 16px 0 16px 6px;
+}
+
+.setting-email{
+    display: flex;
+    flex-direction: column;
+    padding: 14px 0 14px 14px;
+}
+
+.setting-email__heading,
+.setting-gender__heading,
+.setting-language__heading,
+.setting-delete__heading{
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.setting-gender__info,
+.setting-email__info,
+.setting-language__info,
+.setting-delete__info{
+    font-size: 1.8rem;
+    color: #a1a1a1;
+    font-weight: 500;
+    padding: 10px 0 6px 10px;
+}
+
+.setting-gender,
+.setting-language,
+.setting-delete{
+    padding: 14px 0 14px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.setting-gender__title,
+.setting-language__title,
+.setting-delete__title{
+    display: flex;
+    flex-direction: column;
+}
+
+.setting-gender__button,
+.setting-delete__button,
+.setting-language__button{
+    margin-right: 20px;
+}
+
+.setting-gender__button-gender,
+.setting-language__button-language,
+.setting-delete__button-delete,
+.content-save__button{
+    padding: 10px 16px;
+    background: none;
+    font-size: 1.6rem;
+    border: 1px solid #333;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.setting-delete__button-delete{
+    color: red;
+    font-weight: bolder;
+}
+
+.content-save{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.content-save__button{
+    padding: 10px 20px;
+    font-size: 1.8rem;
+}

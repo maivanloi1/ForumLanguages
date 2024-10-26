@@ -4,6 +4,12 @@ const btnUpPost = $('.post-up__btn')
 const apiUpPost = `${api}posts`
 const apiUpImage = `${api}upload/post`
 
+window.addEventListener('load', function () {
+    $('.header-account').style.display = 'flex'
+    loadUser()
+    checkTimeOut()
+})
+
 document.getElementById('post-file__input').addEventListener('change', function (event) {
     const file = event.target.files[0];
     if (file && file.type.startsWith('image/')) {
@@ -83,4 +89,29 @@ function callApiUpImage(language, title, content) {
                 console.log(error)
             })
     }
+}
+
+function loadUser(){
+    let option = {
+        method: "GET",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem('authToken')
+        }
+    }
+
+    fetch(apiLoadUser, option)
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.result) {
+                $('.header-account__username').innerText = data.result.name
+                if (data.result.img) {
+                    $('.header-account__img').src = data.result.img
+                } else {
+                    $('.header-account__img').src = 'assets/images/avatar.png'
+                }
+            }
+        })
+        .catch((error) => {
+            console.log(error)
+        })
 }

@@ -1,5 +1,12 @@
-
 /* Comment */
+
+.post-kind{
+    padding: 20px 0 0 8px;
+}
+
+.post-kind__heading{
+    font-size: 2rem;
+}
 
 .post-cmt__frame{
     position: relative;

@@ -150,7 +150,6 @@
     margin-left: 10px;
     font-size: 1.8rem;
     overflow: hidden;
-    display: block;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 10;

@@ -1,14 +1,61 @@
 
 const logoutbtn = $('.header-account__list-item:last-child .header-account__item-link')
 const framePost = $('.posts')
+const btnCreate = $('.header-create__link')
 
 const apiLogout = `${api}auth/logout`
 const apiLoadPost = `${api}posts`
 
+const url = document.URL
+const urlParam = new URLSearchParams(url.split('?')[1])
+
+let urlContent = urlParam.get('content')
+
 let currentPage = 0
 
 window.addEventListener('load', function () {
-    loadPost(currentPage)
+    if(urlContent === null){
+        urlContent = ""
+    }
+    loadPost(currentPage,urlContent)
+    let token = localStorage.getItem('authToken')
+    if (token) {
+        let option = {
+            method: "GET",
+            headers: {
+                "Authorization": "Bearer " + token
+            }
+        }
+
+        fetch(apiLoadUser, option)
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.result) {
+                    $('.header-account__username').innerText = data.result.name
+                    $('.header-account').style.display = 'flex'
+                    checkTimeOut()
+                    if (data.result.img) {
+                        $('.header-account__img').src = data.result.img
+                    } else {
+                        $('.header-account__img').src = 'assets/images/avatar.png'
+                    }
+                }
+            })
+            .catch(() => {
+                this.localStorage.removeItem('authToken')
+                $('.header-auth').style.display = 'flex'
+                btnCreate.onclick = (event) => {
+                    event.preventDefault()
+                    this.alert("Login is required")
+                }
+            })
+    } else {
+        $('.header-auth').style.display = 'flex'
+        btnCreate.onclick = (event) => {
+            event.preventDefault()
+            this.alert("Login is required")
+        }
+    }
 })
 
 logoutbtn.onclick = function (event) {
@@ -40,16 +87,16 @@ function isScrollEnd() {
 framePost.addEventListener('scroll', () => {
     if (isScrollEnd()) {
         currentPage++
-        loadPost(currentPage)
+        loadPost(currentPage,urlContent)
     }
 })
 
-function loadPost(page) {
+function loadPost(page,content) {
 
     let params = {
         page,
         size: 4,
-        content: "",
+        content,
         language: "",
     }
 
@@ -83,7 +130,7 @@ function loadPost(page) {
                                 <h3 class="post-title__text">${post.title}</h3>
                             </div>
                             <div class="post-content">
-                                <span class="post-content__text"> ${post.content.replace(/\n/g,'<br>')} </span>
+                                <span class="post-content__text"> ${post.content.replace(/\n/g, '<br>')} </span>
                             </div>
                            <div class="post-img" style="${post.img ? 'display: block;' : 'display: none;'}">
                                 <img class="post-img__src" src="${post.img || ''}" style="${post.img ? 'display: block;' : 'display: none;'}">
@@ -112,7 +159,7 @@ function loadPost(page) {
                     `
                     framePost.appendChild(postElement)
                 })
-            }else if(data.code === 40405){
+            } else if (data.code === 40405) {
                 alert("Bạn đã lướt hết bài viết !!!")
             }
         })

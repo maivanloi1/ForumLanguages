@@ -57,30 +57,34 @@ html{
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
     color: #555;
     font-size: 1.8rem;
 }
-.header-search > i{
-    position: relative;
-    right: -30px;
-}
-.header-search__form{
-    width: 60%;
-    display: inline-flex
-}
-.header-search__form-input{
+
+.header-search__input{
     font-size: 1.6rem;
+    position: relative;
+    left: 240px;
     font-weight: 500;
-    width: 100%;
-    padding: 4px 38px;
+    width: 70%;
+    padding: 4px 40px 4px 30px;
     height: 40px;
     border: 2px solid #b8b8b8;
     border-radius: 20px;
 }
-.header-search__form-btn{
-    display: none;
+.header-search__btn{
+    font-size: 2rem;
+    border: none;
+    background: none;
+    position: relative;
+    right: -204px;
 }
+
+.header-search__btn:hover{
+    opacity: 0.7;
+    cursor: pointer;
+}
+
 .header-create{
     width: 100px;
     display: flex;

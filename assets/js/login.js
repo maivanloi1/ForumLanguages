@@ -29,7 +29,7 @@ btnLogin.onclick = function () {
             .then((data) => {
                 if (!data.result) {
                     showError(data.code, data.message)
-                } else {
+                } else{
                     localStorage.setItem('authToken',data.result.token)
                     fetch(apiCheckActive,{
                         method: "POST",

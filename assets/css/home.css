@@ -158,7 +158,6 @@
 .post-img{
     margin-top: 24px;
     width: 100%;
-    display: flex;
     justify-content: center;
 }
 
@@ -185,19 +184,7 @@
     background-color: #dbeaf8;
     cursor: pointer;
 }
-.header-account:hover > .header-account__list{
-    display: block;
-}
-.header-account__list{
-    width: 152px;
-    box-shadow: 1px 1px 5px #999;
-    position: absolute;
-    right: -4px;
-    top: 74px;
-    list-style: none;
-    background-color: #fff;
-    display: none;
-}
+
 .header-account__item-link{
     padding: 8px 10px;
     display: block;

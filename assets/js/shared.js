@@ -1,10 +1,12 @@
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
+const logoutbtn = $('.header-account__list-item:last-child .header-account__item-link')
+
 const apiRefresh = `${api}auth/refresh`
 const apiLoadUser = `${api}users/my-infor`
 const apiSearch = `${api}posts?`
-
+const apiLogout = `${api}auth/logout`
 
 let activityTime = 30 * 60 * 1000
 let activityTimeout
@@ -20,6 +22,29 @@ searchInput.addEventListener('keypress', (e) => {
     if(e.key == "Enter"){
         search()
     }
+})
+
+
+logoutbtn.addEventListener('click',  (event) => {
+    event.preventDefault()
+    let token = {
+        token: localStorage.getItem("authToken")
+    }
+    let option = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(token)
+    }
+    fetch(apiLogout, option)
+        .then(function (res) {
+            localStorage.removeItem("authToken")
+            window.location.href = "pages/login.html"
+        })
+        .catch((error) => {
+            console.log("Error: " + error)
+        })
 })
 
 function search(){

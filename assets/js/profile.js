@@ -1,51 +1,47 @@
-const btnCreate = $('.header-create__link')
-const framePost = $('.posts')
+const apiGetPostByUserId = `${api}posts/user/`
 
-const apiLoadPost = `${api}posts`
+const framePost = $('.profile-body')
 
 let currentPage = 0
 
 window.addEventListener('load', function () {
-    loadPost(currentPage)
-    let token = localStorage.getItem('authToken')
-    if (token) {
-        let option = {
-            method: "GET",
-            headers: {
-                "Authorization": "Bearer " + token
-            }
-        }
-
-        fetch(apiLoadUser, option)
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.result) {
-                    $('.header-account__username').innerText = data.result.name
-                    $('.header-account').style.display = 'flex'
-                    checkTimeOut()
-                    if (data.result.img) {
-                        $('.header-account__img').src = data.result.img
-                    } else {
-                        $('.header-account__img').src = 'assets/images/avatar.png'
-                    }
-                }
-            })
-            .catch(() => {
-                this.localStorage.removeItem('authToken')
-                $('.header-auth').style.display = 'flex'
-                btnCreate.onclick = (event) => {
-                    event.preventDefault()
-                    this.alert("Login is required")
-                }
-            })
-    } else {
-        $('.header-auth').style.display = 'flex'
-        btnCreate.onclick = (event) => {
-            event.preventDefault()
-            this.alert("Login is required")
-        }
-    }
+    $('.header-account').style.display = 'flex'
+    loadUser()
+    checkTimeOut()
 })
+
+
+function loadUser() {
+
+let option = {
+    method: "GET",
+    headers: {
+        "Authorization": "Bearer " + localStorage.getItem('authToken')
+    }
+}
+
+fetch(apiLoadUser, option)
+    .then((res) => res.json())
+    .then((data) => {
+        if (data.result) {
+            nameUser = data.result.name
+            imageUser = data.result.img
+            idUSer = data.result.id
+            $('.header-account__username').innerText = nameUser
+            $('.profile-header__name').innerText = nameUser
+            if (data.result.img) {
+                $('.header-account__img').src = imageUser
+                $('.profile-header__img-src').src = imageUser
+            } else {
+                $('.header-account__img').src = 'assets/images/avatar.png'
+            }
+            loadPost(currentPage)
+        }
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+}
 
 function isScrollEnd() {
     return framePost.scrollTop + framePost.clientHeight >= framePost.scrollHeight;
@@ -60,35 +56,23 @@ framePost.addEventListener('scroll', () => {
 
 function loadPost(page) {
 
-    let url = document.URL
-    let urlParam = new URLSearchParams(url.split('?')[1])
-    
-    let content = urlParam.get('content')
-
-    if(content === null){
-        content = ''
-    }
-
     let params = {
         page,
-        size: 4,
-        content,
-        language: "",
+        size: 4
     }
 
     let param = new URLSearchParams(params);
 
-    fetch(`${apiLoadPost}?${param.toString()}`)
+    fetch(`${apiGetPostByUserId}${idUSer}?${param.toString()}`)
         .then((res) => res.json())
         .then((data) => {
             if (data.result) {
                 data.result.content.forEach((post) => {
                     const postElement = document.createElement('div')
-                    postElement.classList.add('post')
+                    postElement.classList.add('post-body')
 
 
                     postElement.innerHTML = `
-                        <div class="post-body">
                             <div class="post-header">
                                 <div class="post-header__user">
                                     <img src="${post.img_user || './assets/images/avatar.png'}" alt="" class="post-header__user-img">
@@ -131,7 +115,6 @@ function loadPost(page) {
                                     </button>
                                 </div>
                             </div>
-                        </div>
                     `
                     framePost.appendChild(postElement)
                 })

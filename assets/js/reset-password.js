@@ -28,7 +28,7 @@ btnReset.onclick = function(){
             .then((data) => {
                 if(data.result){
                     alert("Change Password Success")
-                    window.location.href = 'pages/login.html'
+                    window.location.href = 'login.html'
                 }
             })
             .catch((error) => {

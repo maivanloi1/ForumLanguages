@@ -45,7 +45,7 @@ btnRegister.onclick = function () {
                     showError(data.code, data.message)
                 } else {
                     alert("Register Success")
-                    window.location.href = 'pages/login.html'
+                    window.location.href = 'login.html'
                 }
             })
             .catch((error) =>{

@@ -27,6 +27,10 @@ searchInput.addEventListener('keypress', (e) => {
 
 logoutbtn.addEventListener('click',  (event) => {
     event.preventDefault()
+    
+    let url = document.URL
+    let urlEndPoint = url.substring(url.lastIndexOf('/')+1)
+
     let token = {
         token: localStorage.getItem("authToken")
     }
@@ -40,7 +44,11 @@ logoutbtn.addEventListener('click',  (event) => {
     fetch(apiLogout, option)
         .then(function (res) {
             localStorage.removeItem("authToken")
-            window.location.href = "pages/login.html"
+            if(urlEndPoint === 'index.html'){
+                window.location.href = 'pages/login.html'
+            }else{
+                window.location.href = 'login.html'
+            }
         })
         .catch((error) => {
             console.log("Error: " + error)

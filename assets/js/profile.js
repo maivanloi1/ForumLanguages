@@ -33,7 +33,7 @@ fetch(apiLoadUser, option)
                 $('.header-account__img').src = imageUser
                 $('.profile-header__img-src').src = imageUser
             } else {
-                $('.header-account__img').src = 'assets/images/avatar.png'
+                $('.header-account__img').src = './assets/images/avatar.png'
             }
             loadPost(currentPage)
         }
@@ -44,10 +44,10 @@ fetch(apiLoadUser, option)
 }
 
 function isScrollEnd() {
-    return framePost.scrollTop + framePost.clientHeight >= framePost.scrollHeight;
+    return window.innerHeight + window.scrollY >= document.body.offsetHeight
 }
 
-framePost.addEventListener('scroll', () => {
+window.addEventListener('scroll', () => {
     if (isScrollEnd()) {
         currentPage++
         loadPost(currentPage)
@@ -118,8 +118,6 @@ function loadPost(page) {
                     `
                     framePost.appendChild(postElement)
                 })
-            } else if (data.code === 40405) {
-                alert("Bạn đã lướt hết bài viết !!!")
             }
         })
         .catch((error) => {

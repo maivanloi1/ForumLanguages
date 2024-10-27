@@ -48,7 +48,13 @@ logoutbtn.addEventListener('click',  (event) => {
 })
 
 function search(){
-    window.location.href = 'index.html?content=' + searchInput.value
+    let url = document.URL
+    let urlEndPoint = url.substring(url.lastIndexOf('/')+1)
+    if(urlEndPoint === 'index.html'){
+        window.location.href = './index.html?content=' + searchInput.value
+    }else{
+        window.location.href = '../index.html?content=' + searchInput.value
+    }
 }
 
 function checkTimeOut() {

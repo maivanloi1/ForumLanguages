@@ -33,7 +33,7 @@ fetch(apiLoadUser, option)
                 $('.header-account__img').src = imageUser
                 $('.profile-header__img-src').src = imageUser
             } else {
-                $('.header-account__img').src = './assets/images/avatar.png'
+                $('.header-account__img').src = '../assets/images/avatar.png'
             }
             loadPost(currentPage)
         }
@@ -75,7 +75,7 @@ function loadPost(page) {
                     postElement.innerHTML = `
                             <div class="post-header">
                                 <div class="post-header__user">
-                                    <img src="${post.img_user || './assets/images/avatar.png'}" alt="" class="post-header__user-img">
+                                    <img src="${post.img_user || '../assets/images/avatar.png'}" alt="" class="post-header__user-img">
                                     <h6 class="post-header__user-name">${post.name}</h6>
                                     <span class="post-header__user-datetime">${post.date_created}</span>
                                     <span class="post-header__user-kind">${post.language}</span>

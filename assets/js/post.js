@@ -107,7 +107,7 @@ function loadUser(){
                 if (data.result.img) {
                     $('.header-account__img').src = data.result.img
                 } else {
-                    $('.header-account__img').src = 'assets/images/avatar.png'
+                    $('.header-account__img').src = '../assets/images/avatar.png'
                 }
             }
         })

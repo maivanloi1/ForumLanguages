@@ -26,7 +26,7 @@ fetch(apiLoadUser, option)
             if (data.result.img) {
                 $('.header-account__img').src = data.result.img
             } else {
-                $('.header-account__img').src = 'assets/images/avatar.png'
+                $('.header-account__img').src = '../assets/images/avatar.png'
             }
         }
     })
@@ -74,7 +74,7 @@ function loadPostById(){
                 if (data.result.img_user) {
                     $('.post-header__user-img').src = data.result.img_user
                 } else {
-                    $('.post-header__user-img').src = 'assets/images/avatar.png'
+                    $('.post-header__user-img').src = '../assets/images/avatar.png'
                 }
             }
         })

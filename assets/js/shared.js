@@ -50,7 +50,7 @@ logoutbtn.addEventListener('click',  (event) => {
 function search(){
     let url = document.URL
     let urlEndPoint = url.substring(url.lastIndexOf('/')+1)
-    if(urlEndPoint === 'index.html'){
+    if(urlEndPoint === 'index.html' || urlEndPoint === ''){
         window.location.href = './index.html?content=' + searchInput.value
     }else{
         window.location.href = '../index.html?content=' + searchInput.value

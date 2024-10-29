@@ -2,7 +2,7 @@ const btnCreate = $('.header-create__link')
 const framePost = $('.posts')
 
 const apiLoadPost = `${api}posts`
-
+var listBtnShare  = ''
 let currentPage = 0
 
 window.addEventListener('load', function () {
@@ -62,10 +62,10 @@ function loadPost(page) {
 
     let url = document.URL
     let urlParam = new URLSearchParams(url.split('?')[1])
-    
+
     let content = urlParam.get('content')
 
-    if(content === null){
+    if (content === null) {
         content = ''
     }
 
@@ -78,23 +78,37 @@ function loadPost(page) {
 
     let param = new URLSearchParams(params);
 
-    fetch(`${apiLoadPost}?${param.toString()}`)
+    let option = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }
+
+    let token = localStorage.getItem('authToken')
+
+    if(token){
+        option.headers.Authorization=  "Bearer " + token
+    }
+
+    fetch(`${apiLoadPost}?${param.toString()}`, option)
         .then((res) => res.json())
         .then((data) => {
             if (data.result) {
                 data.result.content.forEach((post) => {
                     const postElement = document.createElement('div')
                     postElement.classList.add('post')
-
+                    let urlProfile = `./pages/profile.html?id=${post.id_user}`
+                    let urlPost = `./pages/post-detail.html?id=${post.id}`
 
                     postElement.innerHTML = `
                         <div class="post-body">
                             <div class="post-header">
                                 <div class="post-header__user">
-                                    <img src="${post.img_user || './assets/images/avatar.png'}" alt="" class="post-header__user-img">
-                                    <h6 class="post-header__user-name">${post.name}</h6>
-                                    <span class="post-header__user-datetime">${post.date_created}</span>
-                                    <span class="post-header__user-kind">${post.language}</span>
+                                    <a href="${urlProfile}" class="post-header_user-link"><img src="${post.img_user || './assets/images/avatar.png'}" alt="" class="post-header__user-img"></a>
+                                    <a href="${urlProfile}" class="post-header__user-name">${post.name}</a> 
+                                    <a href="${urlPost}" class="post-header__user-datetime">${post.date_created}</a>
+                                    <a href="${urlPost}" class="post-header__user-kind">${post.language}</a>
                                 </div>
                                 <div class="post-header__more">
                                     <button class="post-header__more-btn">
@@ -103,37 +117,62 @@ function loadPost(page) {
                                 </div>
                             </div>
                             <div class="post-title">
-                                <h3 class="post-title__text">${post.title}</h3>
+                                <a href="${urlPost}" class="post-title__text">${post.title}</a>
                             </div>
                             <div class="post-content">
-                                <span class="post-content__text"> ${post.content.replace(/\n/g, '<br>')} </span>
+                                <a href="${urlPost}" class="post-content__text"> ${post.content.replace(/\n/g, '<br>')} </a>
                             </div>
                            <div class="post-img" style="${post.img ? 'display: flex;' : 'display: none;'}">
-                                <img class="post-img__src" src="${post.img || ''}" style="${post.img ? 'display: flex;' : 'display: none;'}">
+                                <a href="${urlPost}" class="post-img__link"><img src="${post.img || ''}" style="${post.img ? 'display: flex;' : 'display: none;'}" class="post-img__link-src"></a>
                             </div>
                             <div class="post-interact">
                                 <div class="post-interact__like">
-                                    <button class="post-interact__like-btn">
-                                        <i class="fa-solid fa-heart"></i>
-                                        ${post.likes}
+                                    <button id="${post.id}" class="post-interact__like-btn">
+                                        <span>${post.likes}</span>  
+                                        <i class="fa-regular fa-heart"></i>
                                     </button>
                                 </div>
                                 <div class="post-interact__comment">
                                     <button class="post-interact__comment-btn">
-                                        <i class="fa-solid fa-comment"></i>
-                                        ${post.comments}
+                                        <span>${post.comments}</span>
+                                        <i class="fa-regular fa-comment"></i>
                                     </button>
                                 </div>
                                 <div class="post-interact__share">
-                                    <button class="post-interact__share-btn">
+                                    <button id-post="${post.id}" class="post-interact__share-btn">
                                         <i class="fa-solid fa-share"></i>
-                                        ${post.shares}
+                                        Share
                                     </button>
                                 </div>
                             </div>
                         </div>
-                    `
+                        `
                     framePost.appendChild(postElement)
+                    const likeButton = postElement.querySelector('.post-interact__like-btn');
+                    const likeIcon = likeButton.querySelector('i');
+                    const shareButton = postElement.querySelector('.post-interact__share-btn')
+
+                    if (post.user_like) {
+                        likeButton.classList.add('liked');
+                        likeIcon.classList.add('fa-solid');
+                        likeIcon.classList.remove('fa-regular');
+                    } else {
+                        likeButton.classList.remove('liked');
+                        likeIcon.classList.remove('fa-solid');
+                        likeIcon.classList.add('fa-regular');
+                    }
+
+                    likeButton.addEventListener('click',()=> {
+                        console.log(1)
+                        const id = likeButton.getAttribute('id')
+                        const buttonLike = document.getElementById(id)
+                        likePost(id,buttonLike)
+                    })
+
+                    shareButton.addEventListener('click',() => {
+                        const id =  shareButton.getAttribute('id-post')
+                        getLinkShare(id)
+                    })
                 })
             } else if (data.code === 40405) {
                 alert("Bạn đã lướt hết bài viết !!!")

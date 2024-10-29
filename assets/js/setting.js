@@ -20,7 +20,7 @@ function loadUser() {
         .then((data) => {
             if (data.result) {
                 $('.header-account__username').innerText = data.result.name
-                // $('.setting-email__info').innerText = data.result.email
+                $('.setting-email__info').innerText = data.result.email
                 $('.setting-gender__button-gender').innerHTML = `
                     ${data.result.sex}
                     <i class="fa-solid fa-chevron-down"></i>

@@ -1,13 +1,5 @@
 /* Comment */
 
-.post-kind{
-    padding: 20px 0 0 8px;
-}
-
-.post-kind__heading{
-    font-size: 2rem;
-}
-
 .post-cmt__frame{
     position: relative;
     display: flex;
@@ -39,6 +31,11 @@
     border-radius: 8px;
     border: 1px solid #999;
     cursor: pointer;
+}
+
+.body-cmt{
+    display: flex;
+    flex-direction: column;
 }
 
 .post-cmt__body{

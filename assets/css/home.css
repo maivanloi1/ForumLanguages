@@ -109,18 +109,20 @@
 }
 .post-header__user-img{
     height: 50px;
-    width: 50px;
+    width: 55px;
     border-radius: 50%;
     border: 2px solid #c4c2c2;
 }
 .post-header__user-name{
     font-size: 2.2rem;
     margin: 0 20px 0 14px;
+    color: #000;
+    font-weight: 600;
 }
 .post-header__user-datetime{
     font-size: 1.8rem;
     font-weight: 500;
-    color: #333
+    color: #333;
 }
 .post-header__user-kind{
     font-size: 1.8rem;
@@ -135,6 +137,16 @@
     font-size: 2rem;
     cursor: pointer;
 }
+
+.post-header__user > a{
+    text-decoration: none;
+}
+
+.post-title > a,
+.post-content > a{
+    text-decoration: none;
+}
+
 .post-title,
 .post-content{
     margin-top: 16px;
@@ -143,8 +155,11 @@
 .post-title__text{
     font-size: 2.2rem;
     margin-left: 8px;
+    color:#000;
+    font-weight: 600;
 }
 .post-content__text{
+    color: #000;
     height: auto;
     width: 100%;
     margin-left: 10px;
@@ -161,7 +176,7 @@
     justify-content: center;
 }
 
-.post-img__src{
+.post-img__link-src{
     max-height: 400px;
 }
 
@@ -182,6 +197,19 @@
     border-radius: 20px;
     padding: 10px 14px;
     background-color: #dbeaf8;
+}
+
+.post-interact__like-btn > span,
+.post-interact__share-btn > span,
+.post-interact__comment-btn > span{
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.post-interact__like-btn:hover,
+.post-interact__share-btn:hover,
+.post-interact__comment-btn:hover{
+    opacity: 0.7;
     cursor: pointer;
 }
 
@@ -201,4 +229,9 @@
     right: 2px;
     top: -33px;
     border-color: transparent transparent #fff transparent;
+}
+
+.liked {
+    color: red;
+    border-color:red;
 }

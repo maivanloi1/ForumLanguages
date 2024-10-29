@@ -2,11 +2,15 @@ const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
 const logoutbtn = $('.header-account__list-item:last-child .header-account__item-link')
+const btnLike = $('.post-interact__like-btn')
+const btnShare = $('.post-interact__share-btn')
 
 const apiRefresh = `${api}auth/refresh`
 const apiLoadUser = `${api}users/my-infor`
 const apiSearch = `${api}posts?`
 const apiLogout = `${api}auth/logout`
+const apiLike = `${api}likes`
+const apiLoadPostById = `${api}posts/`
 
 let activityTime = 30 * 60 * 1000
 let activityTimeout
@@ -23,6 +27,17 @@ searchInput.addEventListener('keypress', (e) => {
         search()
     }
 })
+
+function getLinkShare(id){
+    const url = `https://maivanloi1.github.io/ForumLanguages/pages/post-detail.html?id=${id}`
+    navigator.clipboard.writeText(url)
+        .then(() => {
+            alert('Get link post success')
+        })
+        .catch(() => {
+            alert('Get link post failed')
+        })
+}
 
 
 logoutbtn.addEventListener('click',  (event) => {
@@ -103,5 +118,69 @@ function callApiRefresh() {
         })
         .catch((error) => {
             console.log("Error: " + error)
+        })
+}
+
+function likePost(id_post,elementLike) {
+
+    let option = {
+        method: 'GET',
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem('authToken')
+        }
+    }
+
+    
+
+    fetch(apiLoadPostById + id_post, option)
+        .then(res => res.json())
+        .then(data => {
+
+            let dataLike = {
+                id_post,
+                liked: false
+            }
+
+            if (!data.result.user_like) {
+                dataLike.liked = true
+            } else {
+                dataLike.liked = false
+            }
+            return dataLike
+        })
+        .then((data) => {
+            let request = new XMLHttpRequest()
+
+            request.open('POST', apiLike, true)
+
+            request.setRequestHeader('Content-Type', 'application/json')
+            request.setRequestHeader('Authorization', `Bearer ${localStorage.getItem('authToken')}`)
+
+            request.onreadystatechange = function () {
+                
+                if (this.readyState === 4 && this.status === 200) {
+                    const data = JSON.parse(this.responseText)
+                    if(elementLike === undefined ){
+                        elementLike = $('.post-interact__like-btn')
+                    }
+                    const spanElement = elementLike.querySelector('span')
+                    if (data.result.liked) {
+                        elementLike.querySelector('i').classList.add('fa-solid')
+                        elementLike.querySelector('i').classList.remove('fa-regular')
+                        spanElement.innerText = parseInt(spanElement.innerText) + 1
+                        elementLike.classList.add('liked')
+                    } else {
+                        elementLike.querySelector('i').classList.remove('fa-solid')
+                        elementLike.querySelector('i').classList.add('fa-regular')
+                        spanElement.innerText = parseInt(spanElement.innerText) - 1
+                        elementLike.classList.remove('liked')
+                    }
+                }
+                
+            }
+            request.send(JSON.stringify(data))
+        })
+        .catch(error => {
+            console.log(error)
         })
 }

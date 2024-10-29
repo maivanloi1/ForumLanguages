@@ -55,6 +55,7 @@ function callApiUpPost(language, title, content, img) {
         .then((data) => {
             if (data.result) {
                 alert("Up Post Success")
+                window.location.href = '../index.html?content=' + content
             } else {
                 alert(data.message)
             }

@@ -55,7 +55,6 @@ function loadUser() {
             }
             if(id===null){
                 id = data.result.id
-                console.log(id)
                 loadUserProfile()   
                 loadPost(currentPage)
             }else{
@@ -102,8 +101,8 @@ function loadPost(page) {
                                 <div class="post-header__user">
                                     <a class="post-header_user-link"><img src="${post.img_user || './assets/images/avatar.png'}" alt="" class="post-header__user-img"></a>
                                     <a class="post-header__user-name">${post.name}</a> 
-                                    <a href="" class="post-header__user-datetime">${post.date_created}</a>
-                                    <a href="" class="post-header__user-kind">${post.language}</a>
+                                    <a href="${urlPost}" class="post-header__user-datetime">${post.date_created}</a>
+                                    <a href="${urlPost}" class="post-header__user-kind">${post.language}</a>
                                 </div>
                                 <div class="post-header__more">
                                     <button class="post-header__more-btn">
@@ -112,17 +111,17 @@ function loadPost(page) {
                                 </div>
                             </div>
                             <div class="post-title">
-                                <a href="" class="post-title__text">${post.title}</a>
+                                <a href="${urlPost}" class="post-title__text">${post.title}</a>
                             </div>
                             <div class="post-content">
-                                <a href="" class="post-content__text"> ${post.content.replace(/\n/g, '<br>')} </a>
+                                <a href="${urlPost}" class="post-content__text"> ${post.content.replace(/\n/g, '<br>')} </a>
                             </div>
                            <div class="post-img" style="${post.img ? 'display: flex;' : 'display: none;'}">
-                                <a href="" class="post-img__link"><img src="${post.img || ''}" style="${post.img ? 'display: flex;' : 'display: none;'}" class="post-img__link-src"></a>
+                                <a href="${urlPost}" class="post-img__link"><img src="${post.img || ''}" style="${post.img ? 'display: flex;' : 'display: none;'}" class="post-img__link-src"></a>
                             </div>
                             <div class="post-interact">
                                 <div class="post-interact__like">
-                                    <button class="post-interact__like-btn">
+                                    <button id="${post.id}" class="post-interact__like-btn">
                                         <i class="fa-regular fa-heart"></i>
                                         <span>${post.likes}</span>  
                                     </button>
@@ -134,7 +133,7 @@ function loadPost(page) {
                                     </button>
                                 </div>
                                 <div class="post-interact__share">
-                                    <button class="post-interact__share-btn">
+                                    <button id-post="${post.id}" class="post-interact__share-btn">
                                         <i class="fa-solid fa-share"></i>
                                         Share
                                     </button>
@@ -142,11 +141,32 @@ function loadPost(page) {
                         </div>
                     `
                     framePost.appendChild(postElement)
-                    $('.post-header__user-datetime').setAttribute('href', urlPost)
-                    $('.post-header__user-kind').setAttribute('href', urlPost)
-                    $('.post-title__text').setAttribute('href', urlPost)  
-                    $('.post-content__text').setAttribute('href', urlPost)
-                    $('.post-img__link-src').setAttribute('href', urlPost)
+
+                    const likeButton = postElement.querySelector('.post-interact__like-btn');
+                    const likeIcon = likeButton.querySelector('i');
+                    const shareButton = postElement.querySelector('.post-interact__share-btn')
+
+                    if (post.user_like) {
+                        likeButton.classList.add('liked');
+                        likeIcon.classList.add('fa-solid');
+                        likeIcon.classList.remove('fa-regular');
+                    } else {
+                        likeButton.classList.remove('liked');
+                        likeIcon.classList.remove('fa-solid');
+                        likeIcon.classList.add('fa-regular');
+                    }
+
+                    likeButton.addEventListener('click',()=> {
+                        console.log(1)
+                        const id = likeButton.getAttribute('id')
+                        const buttonLike = document.getElementById(id)
+                        likePost(id,buttonLike)
+                    })
+
+                    shareButton.addEventListener('click',() => {
+                        const id =  shareButton.getAttribute('id-post')
+                        getLinkShare(id)
+                    })
                 })
             }
         })

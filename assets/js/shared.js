@@ -59,7 +59,7 @@ logoutbtn.addEventListener('click',  (event) => {
     fetch(apiLogout, option)
         .then(function (res) {
             localStorage.removeItem("authToken")
-            if(urlEndPoint === 'index.html'){
+            if(urlEndPoint.startsWith('index.html')){
                 window.location.href = 'pages/login.html'
             }else{
                 window.location.href = 'login.html'

@@ -1,5 +1,6 @@
 const btnCreate = $('.header-create__link')
 const framePost = $('.posts')
+const btnHome = $('.header-logo__link')
 
 const apiLoadPost = `${api}posts`
 var listBtnShare  = ''
@@ -44,6 +45,16 @@ window.addEventListener('load', function () {
             event.preventDefault()
             this.alert("Login is required")
         }
+    }
+})
+
+btnHome.addEventListener('click',() => {
+    let url = document.URL
+    let urlEndPoint = url.substring(url.lastIndexOf('/')+1)
+    if(urlEndPoint !== 'index.html'){
+        btnHome.setAttribute('href','./index.html')
+    }else{
+        btnHome.setAttribute('href','')
     }
 })
 
@@ -163,7 +174,6 @@ function loadPost(page) {
                     }
 
                     likeButton.addEventListener('click',()=> {
-                        console.log(1)
                         const id = likeButton.getAttribute('id')
                         const buttonLike = document.getElementById(id)
                         likePost(id,buttonLike)

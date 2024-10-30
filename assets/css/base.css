@@ -212,3 +212,8 @@ html{
 .header-auth{
     display: none;
 }
+
+.liked {
+    color: red;
+    border-color:red;
+}

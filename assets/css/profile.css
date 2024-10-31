@@ -1,27 +1,27 @@
 /* profile */
-
 .profile{
     display: flex;
     justify-content: center;
-    margin-top: 120px;
-    padding-bottom: 50px;
-    height: 740px;
+    margin-top: 70px;
+    height: 840px;
     overflow: hidden;
 }
 
-.test{
+.profile-content {
     width: 100%;
-    display: flex;
-    justify-content: center;
+    display: block;
+    max-height: 850px;
     overflow-y: auto;
-    max-height: 750px;
 }
 
-.form-profile{
+.form-profile {
+    display: flex;
+    flex-direction: column;
     width: 60%;
     background-color: #e4e4e4;
     border-radius: 20px;
     padding: 20px 40px;
+    margin: 50px auto;
 }
 
 .profile-header,

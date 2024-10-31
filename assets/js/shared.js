@@ -30,7 +30,7 @@ searchInput.addEventListener('keypress', (e) => {
 })
 
 function getLinkShare(id){
-    const url = `https://maivanloi1.github.io/ForumLanguages/pages/post-detail.html?id=${id}`
+    const url = `https://maivloi2003.github.io/ForumLanguages/pages/post-detail.html?id=${id}`
     navigator.clipboard.writeText(url)
         .then(() => {
             alert('Get link post success')

@@ -2,7 +2,7 @@ const apiGetPostByUserId = `${api}posts/user/`
 const apiLoadUserProfile = `${api}users/`
 
 const bodyPost = $('.profile-body')
-const postProfile = $('.test')
+const postProfile = $('.profile-content')
 
 let currentPage = 0
 

@@ -172,7 +172,11 @@ function loadPostById() {
         .then(res => res.json())
         .then(data => {
             if (data.result) {
+                let urlProfile = `./profile.html?id=${data.result.id_user}`
+
                 $('.post-header__user-name').innerText = data.result.name
+                $('.post-header__user-name').setAttribute('href',urlProfile) 
+                $('.post-header_user-link').setAttribute('href',urlProfile) 
                 $('.post-header__user-datetime').innerText = data.result.date_created
                 $('.post-header__user-kind').innerText = data.result.language
                 $('.post-title__text').innerText = data.result.title

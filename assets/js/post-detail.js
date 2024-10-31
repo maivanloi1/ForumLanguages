@@ -218,5 +218,9 @@ function loadPostById() {
 }
 
 btnLike.addEventListener('click', () => {
-    likePost(id)
+    if(checkToken()){
+        likePost(id)          
+    }else{
+        alert('Please login to like post')
+    }
 })

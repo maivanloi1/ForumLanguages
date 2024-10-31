@@ -29,6 +29,15 @@ searchInput.addEventListener('keypress', (e) => {
     }
 })
 
+function checkToken(){
+    if(localStorage.getItem('authToken')){
+        return true
+    }else{
+        return false
+
+    }
+}
+
 function getLinkShare(id){
     const url = `https://maivloi2003.github.io/ForumLanguages/pages/post-detail.html?id=${id}`
     navigator.clipboard.writeText(url)

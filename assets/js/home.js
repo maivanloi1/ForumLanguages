@@ -173,9 +173,13 @@ function loadPost(page) {
                     }
 
                     likeButton.addEventListener('click',()=> {
-                        const id = likeButton.getAttribute('id')
-                        const buttonLike = document.getElementById(id)
-                        likePost(id,buttonLike)
+                        if(checkToken()){
+                            const id = likeButton.getAttribute('id')
+                            const buttonLike = document.getElementById(id)
+                            likePost(id,buttonLike)
+                        }else{
+                            alert('Please login to like post')
+                        }
                     })
 
                     shareButton.addEventListener('click',() => {

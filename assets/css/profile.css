@@ -1,9 +1,20 @@
 /* profile */
+
 .profile{
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 120px;
     padding-bottom: 50px;
+    height: 740px;
+    overflow: hidden;
+}
+
+.test{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow-y: auto;
+    max-height: 750px;
 }
 
 .form-profile{

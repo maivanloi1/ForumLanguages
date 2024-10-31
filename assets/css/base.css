@@ -29,6 +29,10 @@ html{
 }
 /* Header */
 .header{
+    left: 0;
+    top: 0;
+    right: 0;
+    position: fixed;
     display: flex;
     height: 70px;
     border-bottom: 2px solid #b8b8b8;

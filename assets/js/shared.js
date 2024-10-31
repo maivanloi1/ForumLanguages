@@ -4,6 +4,7 @@ const $$ = document.querySelectorAll.bind(document)
 const logoutbtn = $('.header-account__list-item:last-child .header-account__item-link')
 const btnLike = $('.post-interact__like-btn')
 const btnShare = $('.post-interact__share-btn')
+const framePost = $('.posts')
 
 const apiRefresh = `${api}auth/refresh`
 const apiLoadUser = `${api}users/my-infor`

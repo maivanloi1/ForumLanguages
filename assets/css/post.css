@@ -1,6 +1,7 @@
 .body-post{
     display: flex;
     justify-content: center;
+    margin-top: 70px;
 }
 .frame-post{
     width: 1200px;

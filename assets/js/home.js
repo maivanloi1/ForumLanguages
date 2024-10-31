@@ -1,5 +1,4 @@
 const btnCreate = $('.header-create__link')
-const framePost = $('.posts')
 const btnHome = $('.header-logo__link')
 
 const apiLoadPost = `${api}posts`
@@ -59,7 +58,7 @@ btnHome.addEventListener('click',() => {
 })
 
 function isScrollEnd() {
-    return framePost.scrollTop + framePost.clientHeight >= framePost.scrollHeight;
+    return framePost.scrollTop + framePost.clientHeight >= framePost.scrollHeight
 }
 
 framePost.addEventListener('scroll', () => {

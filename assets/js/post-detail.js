@@ -5,15 +5,15 @@ const frameCmt = $('.body-cmt')
 
 let url = document.URL
 let params = new URLSearchParams(url.split('?')[1])
-
 let id = params.get('id')
 
+let currentPage = 0
 
 window.addEventListener('load', function () {
     $('.header-account').style.display = 'flex'
     loadUser()
     loadPostById()
-    loadCommentByIdPost()
+    loadCommentByIdPost(currentPage)
     checkTimeOut()
 })
 
@@ -98,10 +98,10 @@ function upCmt() {
     request.send(JSON.stringify(data))
 }
 
-function loadCommentByIdPost() {
+function loadCommentByIdPost(page) {
     let params = {
         id_post: id,
-        page: 0,
+        page,
         size: 5
     }
 
@@ -147,6 +147,17 @@ function loadCommentByIdPost() {
             console.log(error)
         })
 }
+
+function isScrollEnd() {
+    return framePost.scrollTop + framePost.clientHeight >= framePost.scrollHeight;
+}
+
+framePost.addEventListener('scroll', () => {
+    if (isScrollEnd()) {
+        currentPage++
+        loadCommentByIdPost(currentPage)
+    }
+})
 
 function loadPostById() {
 

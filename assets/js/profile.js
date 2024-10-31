@@ -1,7 +1,8 @@
 const apiGetPostByUserId = `${api}posts/user/`
 const apiLoadUserProfile = `${api}users/`
 
-const framePost = $('.profile-body')
+const bodyPost = $('.profile-body')
+const postProfile = $('.test')
 
 let currentPage = 0
 
@@ -12,14 +13,12 @@ let id = params.get('id')
 window.addEventListener('load', function () {
     $('.header-account').style.display = 'flex'
     loadUser()
-    loadUserProfile()
-    loadPost(currentPage)
     checkTimeOut()
 })
 
 
-function loadUserProfile(){
-    fetch(apiLoadUserProfile+id)
+function loadUserProfile(idUser){
+    fetch(apiLoadUserProfile+idUser)
         .then(res => res.json())
         .then( data => {
             if(data.result){
@@ -51,16 +50,17 @@ function loadUser() {
                 } else {
                     $('.header-account__img').src = '../assets/images/avatar.png'
                 }
-                loadPost(currentPage)
             }
             if(id===null){
                 id = data.result.id
-                loadUserProfile()   
-                loadPost(currentPage)
             }else{
                 $('.header-account__username').setAttribute('href','../pages/profile.html')
+                
             }
-
+        })
+        .then( () => {
+            loadUserProfile(id)   
+            loadPost(currentPage)
         })
         .catch((error) => {
             console.log(error)
@@ -68,10 +68,11 @@ function loadUser() {
 }
 
 function isScrollEnd() {
-    return window.innerHeight + window.scrollY >= document.body.offsetHeight
+    // $('.form-profile').style.height = (postProfile.scrollTop + postProfile.clientHeight + 20) + 'px'
+    return postProfile.scrollTop + postProfile.clientHeight >= postProfile.scrollHeight
 }
 
-window.addEventListener('scroll', () => {
+postProfile.addEventListener('scroll', () => {
     if (isScrollEnd()) {
         currentPage++
         loadPost(currentPage)
@@ -87,7 +88,14 @@ function loadPost(page) {
 
     let param = new URLSearchParams(params);
 
-    fetch(`${apiGetPostByUserId}${id}?${param.toString()}`)
+    let option = {
+        method: 'GET',
+        headers: {
+            "Authorization" : "Bearer "+ localStorage.getItem('authToken')
+        }
+    }
+
+    fetch(`${apiGetPostByUserId}${id}?${param.toString()}`,option)
         .then((res) => res.json())
         .then((data) => {
             if (data.result) {
@@ -140,7 +148,7 @@ function loadPost(page) {
                                 </div>
                         </div>
                     `
-                    framePost.appendChild(postElement)
+                    bodyPost.appendChild(postElement)
 
                     const likeButton = postElement.querySelector('.post-interact__like-btn');
                     const likeIcon = likeButton.querySelector('i');

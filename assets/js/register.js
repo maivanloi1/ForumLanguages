@@ -145,5 +145,5 @@ function checkVal(name, email, language, sex, username, password, repassword) {
             rePwError.classList.add('error-active')
         }
     }
-    return check
+    return check;
 }
